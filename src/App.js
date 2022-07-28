@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import React, { useEffect, useState } from "react"
 
-function App() {
+const loadJSON = (key) => key && JSON.parse(localStorage.getItem(key))
+const saveJSON = (key, data) => localStorage.setItem(key, JSON.stringify(data))
+
+function GitHubUser({ login }) {
+  const [data, setData] = useState(loadJSON(`user:${login}`))
+  const [error, setError] = useState()
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if (!data) return
+    const { name, avatar_url, location } = data
+    saveJSON(`user:${login}`, { name, avatar_url, location })
+  }, [data])
+
+  useEffect(() => {
+    if (!data) return
+    setLoading(true)
+    fetch(`https://api.github.com/users/${login}`)
+      .then((res) => res.json())
+      .then(setData)
+      .then(() => setLoading(false))
+      .catch(setError)
+  }, [login])
+
+  if (loading) {
+    return <h1>loading</h1>
+  }
+  if (error) {
+    return <pre>{JSON.stringify(error, null, 2)}</pre>
+  }
+  if (!data) return null
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <img src={data.avatar_url} alt={data.login} style={{ width: 200 }} />
+      <div>
+        <h1>{data.login}</h1>
+        {data.name && <p>{data.name}</p>}
+        {data.location && <p>{data.location}</p>}
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+function App() {
+  return <GitHubUser login="jinsangYoo" />
+}
+
+export default App
