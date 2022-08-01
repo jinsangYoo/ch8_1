@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from "react"
-import { useFetch } from "../hooks"
-
-const loadJSON = (key) => key && JSON.parse(localStorage.getItem(key))
-const saveJSON = (key, data) => localStorage.setItem(key, JSON.stringify(data))
+import React from "react"
+import Fetch from "./Fetch"
+import UserRepositories from "./UseRepositories"
 
 export default function AdvancedGitHubUser({ login }) {
-  const { loading, data, error } = useFetch(`https://api.github.com/users/${login}`)
+  return <Fetch uri={`https://api.github.com/users/${login}`} renderSuccess={UserDetails} />
+}
 
-  if (loading) {
-    return <h1>loading</h1>
-  }
-  if (error) {
-    return <pre>{JSON.stringify(error, null, 2)}</pre>
-  }
-  if (!data) return null
-
+function UserDetails({ data }) {
   return (
     <div>
       <img src={data.avatar_url} alt={data.login} style={{ width: 200 }} />
@@ -23,6 +15,7 @@ export default function AdvancedGitHubUser({ login }) {
         {data.name && <p>{data.name}</p>}
         {data.location && <p>{data.location}</p>}
       </div>
+      <UserRepositories login={data.login} onSelect={(repoName) => console.log(`${repoName} selected`)} />
     </div>
   )
 }
