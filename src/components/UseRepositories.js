@@ -6,7 +6,7 @@ export default function UserRepositories({ login, selectedRepo }) {
   return (
     <Fetch
       uri={`https://api.github.com/users/${login}/repos`}
-      renderSuccess={({ data }) => <RepoMenu repositories={data} selectedRepo={selectedRepo} login={login} />}
+      renderSuccess={({ data }) => <RepoMenu repositories={data} selected={selectedRepo} login={login} />}
     />
   )
 }

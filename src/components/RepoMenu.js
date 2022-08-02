@@ -2,8 +2,11 @@ import React, { useEffect } from "react"
 import { useIterator } from "../hooks"
 import RepositoryReadme from "./RespositoryReadme"
 
-export default function RepoMenu({ repositories, login }) {
-  const [{ name }, previous, next] = useIterator(repositories)
+export default function RepoMenu({ repositories, selected, login }) {
+  const [{ name }, previous, next] = useIterator(
+    repositories,
+    selected ? repositories.findIndex((repo) => repo.name === selected) : null
+  )
 
   useEffect(() => {
     if (!name) return

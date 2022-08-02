@@ -15,7 +15,7 @@ function UserDetails({ data }) {
         {data.name && <p>{data.name}</p>}
         {data.location && <p>{data.location}</p>}
       </div>
-      <UserRepositories login={data.login} />
+      <UserRepositories login={data.login} selectedRepo="ch8_1" />
     </div>
   )
 }
