@@ -18,8 +18,9 @@
   },
   "plugins": ["react", "react-hooks", "jsx-a11y", "prettier"],
   "rules": {
-    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "warn",
-    "prettier/prettier": "error"
+    "prettier/prettier": "warn",
+    "react/prop-types": "off"
   }
 }
