@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function Checkbox() {
+export default function Checkbox() {
   const [checked, setChecked] = useState(false)
 
   useEffect(() => {

@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-import { toHaveAttribute, toHaveClass } from '@testing-library/jest-dom'
 import Star from './Star'
 
 describe('Component tests', () => {
