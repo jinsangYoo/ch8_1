@@ -1,9 +1,9 @@
-import React from "react"
-import { useInput, useColors } from "../hooks"
+import React from 'react'
+import { useInput, useColors } from '../hooks'
 
 export default function AddColorForm() {
-  const [titleProps, resetTitle] = useInput("")
-  const [colorProps, resetColor] = useInput("#000000")
+  const [titleProps, resetTitle] = useInput('')
+  const [colorProps, resetColor] = useInput('#000000')
   const { addColor } = useColors()
   const submit = (event) => {
     event.preventDefault()

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from 'react'
 
 const loadJSON = (key) => key && JSON.parse(localStorage.getItem(key))
 const saveJSON = (key, data) => localStorage.setItem(key, JSON.stringify(data))

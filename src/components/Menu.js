@@ -1,5 +1,5 @@
-import React from "react"
-import Recipe from "./Recipe"
+import React from 'react'
+import Recipe from './Recipe'
 
 function Menu({ recipes }) {
   return (

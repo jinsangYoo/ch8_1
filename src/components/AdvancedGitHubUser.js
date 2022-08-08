@@ -1,6 +1,6 @@
-import React from "react"
-import Fetch from "./Fetch"
-import UserRepositories from "./UseRepositories"
+import React from 'react'
+import Fetch from './Fetch'
+import UserRepositories from './UseRepositories'
 
 export default function AdvancedGitHubUser({ login }) {
   return <Fetch uri={`https://api.github.com/users/${login}`} renderSuccess={UserDetails} />

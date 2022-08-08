@@ -1,12 +1,12 @@
-import AddColorForm from "./AddColorForm"
-import ColorList from "./ColorList"
-import GitHubUser from "./GitHubUser"
-import AdvancedGitHubUser from "./AdvancedGitHubUser"
-import { tahoe_peaks, List } from "./List"
-import Fetch from "./Fetch"
-import RepoMenu from "./RepoMenu"
-import UserRepositories from "./UseRepositories"
-import RepositoryReadme from "./RespositoryReadme"
+import AddColorForm from './AddColorForm'
+import ColorList from './ColorList'
+import GitHubUser from './GitHubUser'
+import AdvancedGitHubUser from './AdvancedGitHubUser'
+import { tahoe_peaks, List } from './List'
+import Fetch from './Fetch'
+import RepoMenu from './RepoMenu'
+import UserRepositories from './UseRepositories'
+import RepositoryReadme from './RespositoryReadme'
 
 export {
   AddColorForm,
@@ -18,5 +18,5 @@ export {
   Fetch,
   RepoMenu,
   UserRepositories,
-  RepositoryReadme,
+  RepositoryReadme
 }

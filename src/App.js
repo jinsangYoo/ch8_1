@@ -1,9 +1,9 @@
-import "./App.css"
-import React, { useState } from "react"
-import { AdvancedGitHubUser as GitHubUser } from "./components"
+import './App.css'
+import React, { useState } from 'react'
+import { AdvancedGitHubUser as GitHubUser } from './components'
 
 function App() {
-  const [login, setLogin] = useState("jinsangYoo")
+  const [login, setLogin] = useState('jinsangYoo')
 
   return (
     <>

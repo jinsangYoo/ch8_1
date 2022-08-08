@@ -1,6 +1,6 @@
-import React from "react"
-import Fetch from "./Fetch"
-import RepoMenu from "./RepoMenu"
+import React from 'react'
+import Fetch from './Fetch'
+import RepoMenu from './RepoMenu'
 
 export default function UserRepositories({ login, selectedRepo }) {
   return (
